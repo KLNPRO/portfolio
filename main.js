@@ -1,5 +1,4 @@
 // header and footer
-
 // Fonction pour définir le lien actif dans la navigation
 function setActiveNavLink() {
     // Obtenir le chemin de la page actuelle
@@ -29,3 +28,66 @@ document.addEventListener('DOMContentLoaded', setActiveNavLink);
 window.addEventListener('hashchange', setActiveNavLink);
  //loadComponent('footer.html', 'footer');
 // Fonction pour ajouter un fond au header lors du défilement
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments et variables
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('#navbar .nav-link');
+    const sections = document.querySelectorAll('section');
+    const navHeight = navbar.getBoundingClientRect().height;
+    
+    // Fonction pour fixer la navbar lors du défilement
+    function fixNavbar() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('fixed-top');
+        document.body.classList.add('has-fixed-nav');
+      } else {
+        navbar.classList.remove('fixed-top');
+        document.body.classList.remove('has-fixed-nav');
+      }
+    }
+    
+    // Fonction pour le scrollspy (mettre en surbrillance l'élément actif)
+    function scrollSpy() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - navHeight - 10;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    // Gestion du défilement fluide vers les sections
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetSection.offsetTop - navHeight,
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Attacher les écouteurs d'événements
+    window.addEventListener('scroll', fixNavbar);
+    window.addEventListener('scroll', scrollSpy);
+    
+    // Initialiser l'état de la navbar
+    fixNavbar();
+    scrollSpy();
+  });
