@@ -28,6 +28,10 @@ body{
   position: relative;
 }
 
+#navbar .nav-link.active {
+  position: relative; /* Gardez uniquement position relative si nécessaire */
+}
+
 #navbar .nav-link:before {
   content: "";
   position: absolute;
@@ -66,10 +70,10 @@ body{
   transition: color 0.3s ease;
 }
 
-#home .navbar .nav-link:hover,
-#home .navbar .nav-link.active {
+#home .navbar .nav-link:hover {
   color: #18d26e;
 }
+
 
 #home .social-links {
   display: flex;
