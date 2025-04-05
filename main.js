@@ -33,9 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sélectionner les éléments nécessaires
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('#navbar .nav-link');
-    const sections = document.querySelectorAll('section');
     
-    // Fonction pour fixer la navbar lors du défilement
+    // Fonction pour fixer la navbar lors du défilement (si tu veux garder cette fonctionnalité)
     function fixNavbar() {
       if (window.scrollY > 100) {
         navbar.classList.add('fixed-top');
@@ -44,32 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navbar.classList.remove('fixed-top');
         document.body.classList.remove('has-fixed-nav');
       }
-    }
-    
-    // Fonction pour le scrollspy
-    function handleScrollSpy() {
-      // Obtenir la position actuelle de défilement avec un peu de marge
-      const currentPosition = window.scrollY + 200;
-      
-      // Vérifier quelle section est visible
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (currentPosition >= sectionTop && currentPosition < sectionBottom) {
-          // Retirer la classe active de tous les liens
-          navLinks.forEach(navLink => {
-            navLink.classList.remove('active');
-          });
-          
-          // Ajouter la classe active au lien correspondant
-          const correspondingLink = document.querySelector(`#navbar .nav-link[href="#${sectionId}"]`);
-          if (correspondingLink) {
-            correspondingLink.classList.add('active');
-          }
-        }
-      });
     }
     
     // Défilement fluide pour les liens de navigation
@@ -81,22 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
-          const navHeight = navbar.offsetHeight;
-          const targetPosition = targetSection.offsetTop - navHeight;
-          
           window.scrollTo({
-            top: targetPosition,
+            top: targetSection.offsetTop,
             behavior: 'smooth'
           });
         }
       });
     });
     
-    // Enregistrer les événements
+    // Enregistrer l'événement pour fixer la navbar (seulement si tu veux garder cette fonctionnalité)
     window.addEventListener('scroll', fixNavbar);
-    window.addEventListener('scroll', handleScrollSpy);
     
-    // Initialiser les fonctions au chargement de la page
+    // Initialiser la fonction au chargement de la page
     fixNavbar();
-    handleScrollSpy();
   });
