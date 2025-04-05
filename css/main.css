@@ -20,6 +20,14 @@ body{
 }
 /* header start */
 /* Animation de la barre de navigation */
+#navbar .nav-link {
+  color: white; /* Couleur par défaut pour tous les liens, y compris l'actif */
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
 #navbar .nav-link:before {
   content: "";
   position: absolute;
@@ -80,12 +88,11 @@ body{
   color: #18d26e;
 }
 #navbar .nav-link.active {
-  color: #18d26e;
   font-weight: bold;
-  position: relative;
+  position: relative; 
 }
 
-#navbar .nav-link.active::before {
+/*#navbar .nav-link.active::before {
   content: "";
   position: absolute;
   width: 25px;
@@ -95,7 +102,7 @@ body{
   background-color: #18d26e;
   visibility: visible;
   transition: all 0.3s ease-in-out;
-}
+}*/
 
 .hamburger {
   cursor: pointer;
