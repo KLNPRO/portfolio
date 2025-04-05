@@ -31,9 +31,17 @@ body{
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+#navbar.fixed-top .nav-link {
+  padding: 0.5rem 0;
+}
+
+#navbar.fixed-top .nav-link {
+  padding: 0.5rem 0;
+}
+
 /* Ajout d'un espace en haut du contenu quand la navbar est fixe */
-body.has-fixed-nav {
-  padding-top: 60px;
+body.has-fixed-nav #home {
+  padding-top: 80px;
 }
 /* Animation de la barre de navigation */
 #navbar .nav-link {
