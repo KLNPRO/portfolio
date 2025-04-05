@@ -19,41 +19,9 @@ body{
 
 }
 /* header start */
-.fixed-top {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  background-color: rgba(17, 17, 17, 0.9); /* Fond semi-transparent */
-  padding: 1rem 0;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#navbar.fixed-top .nav-link {
-  padding: 0.5rem 0;
-}
-
-#navbar.fixed-top .nav-link {
-  padding: 0.5rem 0;
-}
-
-/* Ajout d'un espace en haut du contenu quand la navbar est fixe */
-body.has-fixed-nav #home {
-  padding-top: 80px;
-}
 /* Animation de la barre de navigation */
 #navbar .nav-link {
-  color: white; /* Couleur par défaut pour tous les liens, y compris l'actif */
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
   position: relative;
-}
-
-#navbar .nav-link.active {
-  position: relative; /* Gardez uniquement position relative si nécessaire */
 }
 
 #navbar .nav-link:before {
@@ -94,10 +62,10 @@ body.has-fixed-nav #home {
   transition: color 0.3s ease;
 }
 
-#home .navbar .nav-link:hover {
+#home .navbar .nav-link:hover,
+#home .navbar .nav-link.active {
   color: #18d26e;
 }
-
 
 #home .social-links {
   display: flex;
@@ -116,8 +84,9 @@ body.has-fixed-nav #home {
   color: #18d26e;
 }
 #navbar .nav-link.active {
+  color: #18d26e;
   font-weight: bold;
-  position: relative; 
+  
 }
 
 #navbar .nav-link.active::before {

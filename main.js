@@ -30,11 +30,10 @@ window.addEventListener('hashchange', setActiveNavLink);
 // Fonction pour ajouter un fond au header lors du défilement
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Éléments et variables
+    // Sélectionner les éléments nécessaires
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('#navbar .nav-link');
     const sections = document.querySelectorAll('section');
-    const navHeight = navbar.getBoundingClientRect().height;
     
     // Fonction pour fixer la navbar lors du défilement
     function fixNavbar() {
@@ -47,30 +46,33 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Fonction pour le scrollspy (mettre en surbrillance l'élément actif)
-    function scrollSpy() {
-        const scrollY = window.pageYOffset;
+    // Fonction pour le scrollspy
+    function handleScrollSpy() {
+      // Obtenir la position actuelle de défilement avec un peu de marge
+      const currentPosition = window.scrollY + 200;
       
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            // Vérifie si nous sommes dans cette section (avec une marge de tolérance)
-            if (scrollY >= sectionTop - navHeight - 50 && scrollY < sectionTop + sectionHeight - navHeight) {
-              // Retire la classe active de tous les liens
-              navLinks.forEach(link => link.classList.remove('active'));
-              
-              // Ajoute la classe active au lien correspondant
-              const activeLink = document.querySelector(`#navbar .nav-link[href="#${sectionId}"]`);
-              if (activeLink) {
-                activeLink.classList.add('active');
-              }
-            }
+      // Vérifier quelle section est visible
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (currentPosition >= sectionTop && currentPosition < sectionBottom) {
+          // Retirer la classe active de tous les liens
+          navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
           });
+          
+          // Ajouter la classe active au lien correspondant
+          const correspondingLink = document.querySelector(`#navbar .nav-link[href="#${sectionId}"]`);
+          if (correspondingLink) {
+            correspondingLink.classList.add('active');
+          }
+        }
+      });
     }
     
-    // Gestion du défilement fluide vers les sections
+    // Défilement fluide pour les liens de navigation
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -78,18 +80,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetId = this.getAttribute('href');
         const targetSection = document.querySelector(targetId);
         
-        window.scrollTo({
-          top: targetSection.offsetTop - navHeight,
-          behavior: 'smooth'
-        });
+        if (targetSection) {
+          const navHeight = navbar.offsetHeight;
+          const targetPosition = targetSection.offsetTop - navHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
     
-    // Attacher les écouteurs d'événements
+    // Enregistrer les événements
     window.addEventListener('scroll', fixNavbar);
-    window.addEventListener('scroll', scrollSpy);
+    window.addEventListener('scroll', handleScrollSpy);
     
-    // Initialiser l'état de la navbar
+    // Initialiser les fonctions au chargement de la page
     fixNavbar();
-    scrollSpy();
+    handleScrollSpy();
   });
