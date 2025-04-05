@@ -19,6 +19,24 @@ body{
 
 }
 /* header start */
+/* Animation de la barre de navigation */
+#navbar .nav-link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #18d26e;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+#navbar .nav-link:hover:before {
+  visibility: visible;
+  width: 25px;
+}
+
 #home .navbar {
   margin-top: 2rem;
   width: 100%;
