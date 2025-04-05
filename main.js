@@ -30,9 +30,34 @@ window.addEventListener('hashchange', setActiveNavLink);
 // Fonction pour ajouter un fond au header lors du défilement
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialiser le scrollspy de Bootstrap
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar',
+        offset: 100
+    });
     // Sélectionner les éléments nécessaires
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('#navbar .nav-link');
+     // Défilement fluide pour les liens de navigation
+     navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      window.addEventListener('resize', function() {
+        scrollSpy.refresh();
+    });
+      
     
     // Fonction pour fixer la navbar lors du défilement (si tu veux garder cette fonctionnalité)
     function fixNavbar() {
@@ -45,22 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Défilement fluide pour les liens de navigation
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-          window.scrollTo({
-            top: targetSection.offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
+   
     
     // Enregistrer l'événement pour fixer la navbar (seulement si tu veux garder cette fonctionnalité)
     window.addEventListener('scroll', fixNavbar);
