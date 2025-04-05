@@ -49,23 +49,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour le scrollspy (mettre en surbrillance l'élément actif)
     function scrollSpy() {
-      let current = '';
+        const scrollY = window.pageYOffset;
       
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - navHeight - 10;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            // Vérifie si nous sommes dans cette section (avec une marge de tolérance)
+            if (scrollY >= sectionTop - navHeight - 50 && scrollY < sectionTop + sectionHeight - navHeight) {
+              // Retire la classe active de tous les liens
+              navLinks.forEach(link => link.classList.remove('active'));
+              
+              // Ajoute la classe active au lien correspondant
+              const activeLink = document.querySelector(`#navbar .nav-link[href="#${sectionId}"]`);
+              if (activeLink) {
+                activeLink.classList.add('active');
+              }
+            }
+          });
     }
     
     // Gestion du défilement fluide vers les sections
