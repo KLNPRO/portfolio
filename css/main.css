@@ -18,6 +18,17 @@ body{
 
 
 }
+body[data-bs-theme="dark"] {
+  background-color: #111111 !important;
+  background-image: linear-gradient(
+    32deg,
+    rgba(8, 8, 8, 0.74) 30px,
+    transparent
+  ) !important;
+  background-size: 60px 60px !important;
+  background-position: -5px -5px !important;
+}
+
 /* header start */
 /* Animation de la barre de navigation */
 #navbar .nav-link {
