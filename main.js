@@ -146,6 +146,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function positionCarousel(position) {
     iconsRow.style.transform = `translateX(calc(-${position * 72}px + 50% - 36px))`;
   }
+  // Vous pouvez également ajouter une fonction d'auto-défilement puisque nous supprimons les contrôles
+//function setupAutoScroll() {
+  // Défilement automatique toutes les 3 secondes
+  //setInterval(() => {
+    //moveCarousel(1); // Avance d'une position
+  //}, 3000);
+//}
   
   // Définir la compétence active et mettre à jour la description
   function setActiveSkill(position) {
@@ -213,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
    rightControl.addEventListener('click', () => moveCarousel(1));
     // Fonction pour fixer la navbar lors du défilement
     //fin de nouveau 11
-    
+
     function fixNavbar() {
       if (window.scrollY > 100) {
         navbar.classList.add('fixed-top');

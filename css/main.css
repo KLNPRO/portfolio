@@ -409,7 +409,7 @@ body[data-bs-theme="dark"] {
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 4rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,7 +456,7 @@ body[data-bs-theme="dark"] {
   box-shadow: 0px 0px 12px 0px rgba(248,248,248,0.3) inset,
               0px 0px 16px 0px rgba(24, 210, 110, 0.3);
   z-index: 10; /* z-index plus élevé pour apparaître devant la ligne */
-  transform: scale(1.1);
+  transform: scale(1.1)translateY(-0.25rem); /* Ajustement vertical pour mieux aligner avec la ligne */
 }
 /*fin nouveau 3*/
 
@@ -482,7 +482,7 @@ body[data-bs-theme="dark"] {
   height: 2rem;
   border-radius: 50%;
   background-color: rgba(20, 20, 20, 0.8);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -511,7 +511,13 @@ body[data-bs-theme="dark"] {
 /* Ligne animée verticale */
 /* nouveau 4*/
 .ligne-animee {
-  z-index: 2; /* z-index inférieur à celui du cercle actif */
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  left: 50%; /* Centre horizontal */
+  transform: translateX(-50%); /* Ajustement précis du centrage */
+  margin: auto;
+  z-index: 2; /* Gardez ce z-index inférieur pour que l'icône active apparaisse au-dessus */
 }
 /*fin nouveau 4*/
 /* Conteneur de description des compétences */
