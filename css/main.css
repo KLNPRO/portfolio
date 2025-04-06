@@ -886,6 +886,485 @@ body[data-bs-theme="dark"] {
 
 /* projects section end */
 
+/*veille technologiue start*/
+.timeline-compact {
+  position: relative;
+  padding-left: 30px;
+  border-left: 2px solid rgba(24, 210, 110, 0.4);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-date {
+  font-weight: 600;
+  color: #18d26e;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.timeline-content {
+  color: #ccc;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #18d26e;
+  left: -36px;
+  top: 5px;
+}
+
+/* Technologies cards */
+.technologies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.technology-card {
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  width: calc(50% - 15px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.technology-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #18d26e;
+}
+
+.tech-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  background: rgba(25, 25, 25, 0.8);
+  padding: 10px;
+  border: 2px solid;
+  transition: all 0.3s ease;
+}
+
+.tech-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.technology-card:hover .tech-icon {
+  filter: grayscale(0%);
+}
+
+.technology-card h6 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.technology-card p {
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 0;
+}
+
+/* Skill Progress */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-list li {
+  margin-bottom: 15px;
+}
+
+.skill-progress {
+  background: rgba(25, 25, 25, 0.3);
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.skill-progress:hover {
+  background: rgba(30, 30, 30, 0.6);
+}
+
+.skill-name {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.progress {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  background-color: #18d26e;
+  transition: width 1s ease-in-out;
+}
+
+/* Project Preview */
+.project-preview {
+  position: relative;
+  margin-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.project-preview img {
+  transition: all 0.5s ease;
+  width: 100%;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.project-preview:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-preview:hover img {
+  transform: scale(1.05);
+}
+
+/* Market Stats */
+.market-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.stat-item {
+  background: rgba(25, 25, 25, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  flex: 1;
+  min-width: calc(33.333% - 15px);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(30, 30, 30, 0.7);
+  transform: translateY(-5px);
+  border-color: #18d26e;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #18d26e;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* Companies Grid */
+.companies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.company-item {
+  background: rgba(25, 25, 25, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  width: calc(50% - 15px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.company-item:hover {
+  background: rgba(30, 30, 30, 0.7);
+  transform: translateY(-5px);
+  border-color: #18d26e;
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.company-logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.company-name {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.company-product {
+  font-size: 12px;
+  color: #18d26e;
+}
+
+/* Impact Tabs */
+.impact-tabs .nav-tabs {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.impact-tabs .nav-link {
+  color: #ccc;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.impact-tabs .nav-link:hover {
+  color: #fff;
+  border-color: rgba(24, 210, 110, 0.5);
+}
+
+.impact-tabs .nav-link.active {
+  color: #18d26e;
+  background: transparent;
+  border-color: #18d26e;
+}
+
+.pros-cons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pros, .cons {
+  flex: 1;
+  padding: 15px;
+  border-radius: 8px;
+  min-width: 200px;
+}
+
+.pros {
+  background-color: rgba(24, 210, 110, 0.1);
+}
+
+.cons {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.pros h6, .cons h6 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pros h6 i {
+  color: #18d26e;
+  margin-right: 8px;
+}
+
+.cons h6 i {
+  color: #dc3545;
+  margin-right: 8px;
+}
+
+.pros ul, .cons ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.pros li, .cons li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* Sectors Grid */
+.sectors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sector-card {
+  flex: 1;
+  min-width: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sector-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.sector-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #18d26e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.sector-card:hover::after {
+  transform: scaleX(1);
+}
+
+.sector-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(24, 210, 110, 0.2);
+  border: 2px solid #18d26e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.sector-icon i {
+  font-size: 24px;
+  color: #18d26e;
+}
+
+.sector-card h4 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.sector-card ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+  color: #ccc;
+  position: relative;
+  z-index: 1;
+}
+
+.sector-card li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .technology-card, 
+  .company-item {
+      width: 100%;
+  }
+  
+  .pros-cons {
+      flex-direction: column;
+  }
+  
+  .stat-item {
+      min-width: 100%;
+  }
+  
+  .sectors-grid {
+      flex-direction: column;
+  }
+  
+  .sector-card {
+      min-height: 180px;
+  }
+}
+
+/* Animation pour les éléments */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.technology-card, .skill-progress, .stat-item, .company-item, .sector-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.technology-card:nth-child(1), .skill-progress:nth-child(1), .stat-item:nth-child(1), .company-item:nth-child(1), .sector-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.technology-card:nth-child(2), .skill-progress:nth-child(2), .stat-item:nth-child(2), .company-item:nth-child(2), .sector-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.technology-card:nth-child(3), .skill-progress:nth-child(3), .stat-item:nth-child(3), .company-item:nth-child(3), .sector-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.technology-card:nth-child(4), .skill-progress:nth-child(4), .stat-item:nth-child(4), .company-item:nth-child(4), .sector-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.technology-card:nth-child(5), .skill-progress:nth-child(5) {
+  animation-delay: 0.5s;
+}
+/*veille techlonogique en*/
+
+
 /* Footer */
 #footer {
   background-color: #171717;
