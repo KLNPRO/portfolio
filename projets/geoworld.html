@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet GeoWorld - Killian Emmanuel</title>
+    <meta content="Description du projet GeoWorld" name="description">
+    <!-- Vos fichiers CSS -->
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .section-divider {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 40px 0;
+        }
+        .return-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #18d26e;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .return-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body data-bs-theme="dark">
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="text-center">Projet GeoWorld</h1>
+                <p class="text-center fs-5">Réalisé en première année de BTS SIO SLAM - 2023-2024</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Présentation du projet</h2>
+                        <p class="card-text">
+                            GeoWorld est une application web permettant d'afficher et de consulter des informations géopolitiques et économiques
+                            des pays du monde entier. Les données sont stockées dans une base de données SQL et proviennent
+                            de l'Institut Official Statistics of Finland (2006).
+                        </p>
+                        <p class="card-text">
+                            L'application permet de visualiser les pays par continent, d'afficher leurs capitales, drapeaux et
+                            diverses informations géopolitiques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2>Fonctionnalités implémentées</h2>
+                <ul class="list-group list-group-flush bg-transparent">
+                    <li class="list-group-item bg-transparent">Affichage des pays regroupés par continent</li>
+                    <li class="list-group-item bg-transparent">Menu déroulant (dropdown) pour sélectionner un continent spécifique</li>
+                    <li class="list-group-item bg-transparent">Affichage des capitales de chaque pays</li>
+                    <li class="list-group-item bg-transparent">Affichage des IDs des continents</li>
+                    <li class="list-group-item bg-transparent">Intégration des drapeaux pour chaque pays</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4">Étapes de développement</h2>
+                
+                <h3 class="mt-4">1. Affichage des informations par pays</h3>
+                <p>
+                    J'ai commencé par implémenter la fonction <code>getCountriesByContinent</code> qui récupère toutes les informations
+                    concernant les pays depuis la base de données SQL.
+                </p>
+                <img src="../assets/img/projects/geoworld/countries_display.png" alt="Affichage des pays" class="project-image">
+                
+                <h3 class="mt-4">2. Utilisation d'une boucle foreach pour l'affichage</h3>
+                <p>
+                    Pour afficher ces informations sur le site, j'ai utilisé une boucle foreach avec une condition if/else
+                    pour traiter les données de chaque pays par continent.
+                </p>
+                <div class="code-block">
+                    <pre><code>
+// Extrait de code pour l'affichage des pays
+foreach ($countries as $country) {
+    // Affichage des informations pour chaque pays
+    echo "&lt;tr&gt;";
+    echo "&lt;td&gt;" . $country->name . "&lt;/td&gt;";
+    echo "&lt;td&gt;" . $country->continent . "&lt;/td&gt;";
+    // ... autres colonnes
+    echo "&lt;/tr&gt;";
+}
+                    </code></pre>
+                </div>
+                
+                <h3 class="mt-4">3. Mise en place du menu déroulant (Dropdown)</h3>
+                <p>
+                    Pour améliorer l'expérience utilisateur, j'ai modifié la structure Dropdown dans le fichier
+                    managerdb.php afin de pouvoir sélectionner les pays du continent souhaité.
+                </p>
+                <img src="../assets/img/projects/geoworld/dropdown.png" alt="Menu déroulant" class="project-image">
+                
+                <h3 class="mt-4">4. Affichage des capitales</h3>
+                <p>
+                    J'ai créé une fonction <code>getCapital</code> pour récupérer et afficher les capitales de tous les pays
+                    à partir de la base de données.
+                </p>
+                <img src="../assets/img/projects/geoworld/capitals.png" alt="Affichage des capitales" class="project-image">
+                
+                <h3 class="mt-4">5. Affichage des IDs des continents</h3>
+                <p>
+                    J'ai également ajouté l'affichage des identifiants pour chaque continent.
+                </p>
+                <img src="../assets/img/projects/geoworld/continent_ids.png" alt="IDs des continents" class="project-image">
+                
+                <h3 class="mt-4">6. Intégration des drapeaux</h3>
+                <p>
+                    Pour finaliser le projet, j'ai ajouté les drapeaux de chaque pays en utilisant les images
+                    disponibles dans le dossier du projet.
+                </p>
+                <img src="../assets/img/projects/geoworld/flags.png" alt="Drapeaux des pays" class="project-image">
+            </div>
+        </div>
+        <!-- Après la section étapes de développement -->
+<div class="section-divider"></div>
+
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="mb-4">Architecture technique</h2>
+        
+        <h3 class="mt-4">Structure de la base de données</h3>
+        <p>
+            Le projet GeoWorld s'appuie sur une base de données relationnelle comportant plusieurs tables interconnectées:
+        </p>
+        <ul>
+            <li><strong>Country</strong>: Contient les informations principales sur les pays (nom, continent, population, etc.)</li>
+            <li><strong>City</strong>: Stocke les données des villes, avec une référence au pays correspondant</li>
+            <li><strong>Language</strong>: Répertorie les différentes langues</li>
+            <li><strong>CountryLanguage</strong>: Table de liaison entre pays et langues, indiquant les langues parlées dans chaque pays</li>
+        </ul>
+        
+        <h3 class="mt-4">Extraits de code significatifs</h3>
+        
+        <h4>Génération du menu déroulant des continents</h4>
+        <div class="code-block">
+            <pre><code>
+&lt;div class="dropdown-menu" aria-labelledby="dropdown01"&gt;    
+    
+    &lt;?php $continent = getContinent(); ?&gt;
+
+    &lt;?php foreach ($continent as $lecontinent) :  ?&gt;
+
+        &lt;a class="dropdown-item" href= "index2.php?continent=&lt;?php echo $lecontinent->Continent ?&gt;"&gt;
+            &lt;?php echo $lecontinent->Continent ?&gt;
+        &lt;/a&gt; 
+
+    &lt;?php endforeach; ?&gt;
+    
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <h4>Affichage des pays avec leurs drapeaux</h4>
+        <div class="code-block">
+            <pre><code>
+&lt;?php
+// $desPays est un tableau dont les éléments sont des objets représentant
+// des caractéristiques d'un pays (en relation avec les colonnes de la table Country)
+foreach ($desPays as $pays) : ?&gt;
+    &lt;tr&gt;
+        &lt;td&gt; &lt;img src = "images/drapeau/&lt;?php echo strtolower($pays-> Code2 )?&gt;.png"&gt; &lt;/td&gt; 
+        &lt;td&gt; &lt;?php echo $pays->id ?&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;a href= "formulaire_pays.php?="&gt;&lt;?php echo $pays->Name;?&gt;&lt;/a&gt; &lt;/td&gt;
+        &lt;td&gt; &lt;?php echo $pays->Population ?&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;?php echo $pays->Continent ?&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;?php echo $pays->LocalName ?&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;?php if (!empty ($pays->Capital)) {echo getCapital($pays->Capital);} else {echo "NUL";}  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;?php endforeach ; ?&gt;
+            </code></pre>
+        </div>
+        
+        <h4>Gestion des filtres par continent</h4>
+        <div class="code-block">
+            <pre><code>
+&lt;?php
+if (isset($_GET['continent'])){
+  $continent = $_GET['continent'];
+  $desPays = getCountriesByContinent($continent);
+}
+else {
+  $continent = "Tous les continents";
+  $desPays = getAllCountries($continent);
+}
+?&gt;
+            </code></pre>
+        </div>
+    </div>
+</div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Compétences développées</h2>
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-item bg-transparent">Manipulation de données SQL avec PHP</li>
+                            <li class="list-group-item bg-transparent">Création d'interfaces utilisateur dynamiques</li>
+                            <li class="list-group-item bg-transparent">Utilisation de Bootstrap pour le design responsive</li>
+                            <li class="list-group-item bg-transparent">Mise en place de filtres et de recherches</li>
+                            <li class="list-group-item bg-transparent">Intégration d'éléments multimédias (images/drapeaux)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <p>Ce projet m'a permis de comprendre les bases du développement web côté serveur et la manipulation de données.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="../index.html#projets" class="return-button">
+        <i class="bi bi-arrow-left"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

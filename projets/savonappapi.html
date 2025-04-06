@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet SavonApp/SavonAPI - Killian Emmanuel</title>
+    <meta content="Description du projet SavonApp et SavonAPI" name="description">
+    <!-- Vos fichiers CSS -->
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+        .section-divider {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 40px 0;
+        }
+        .return-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #18d26e;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .return-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .nav-pills .nav-link.active {
+            background-color: #18d26e;
+        }
+        .nav-pills .nav-link {
+            color: white;
+        }
+    </style>
+</head>
+<body data-bs-theme="dark">
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="text-center">Projet SavonApp & SavonAPI</h1>
+                <p class="text-center fs-5">Application fullstack de formulation de savons - Réalisé en deuxième année de BTS SIO SLAM - 2024</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Présentation du projet</h2>
+                        <p class="card-text">
+                            Ce projet complet est composé de deux parties distinctes mais complémentaires :
+                        </p>
+                        <ul>
+                            <li><strong>SavonApp</strong> : Le frontend développé avec Angular, offrant une interface utilisateur intuitive pour la gestion des recettes de savon.</li>
+                            <li><strong>SavonAPI</strong> : Le backend développé en Kotlin avec Spring Boot, fournissant les services web et la logique métier nécessaires à l'application.</li>
+                        </ul>
+                        <p class="card-text">
+                            L'application permet aux utilisateurs de créer et de gérer des recettes de savon en utilisant la technique de saponification à froid, avec un calcul automatique des propriétés physico-chimiques du savon (dureté, pouvoir lavant, etc.) selon les ingrédients utilisés.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Onglets pour naviguer entre SavonApp et SavonAPI -->
+        <ul class="nav nav-pills mb-4 justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="savonapp-tab" data-bs-toggle="tab" data-bs-target="#savonapp" type="button" role="tab" aria-controls="savonapp" aria-selected="true">SavonApp (Frontend)</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="savonapi-tab" data-bs-toggle="tab" data-bs-target="#savonapi" type="button" role="tab" aria-controls="savonapi" aria-selected="false">SavonAPI (Backend)</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Contenu de l'onglet SavonApp -->
+            <div class="tab-pane fade show active" id="savonapp" role="tabpanel" aria-labelledby="savonapp-tab">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h2 class="mb-4">SavonApp - Frontend Angular</h2>
+                        
+                        <h3 class="mt-4">Présentation et fonctionnalités</h3>
+                        <p>
+                            SavonApp est l'interface utilisateur de l'application, développée avec Angular. Elle permet aux utilisateurs 
+                            d'interagir avec l'application de manière intuitive et efficace.
+                        </p>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4>Écran d'accueil</h4>
+                                <p>
+                                    Page d'accueil présentant l'application et ses principales fonctionnalités. Les utilisateurs peuvent accéder au calculateur
+                                    ou sauvegarder leurs recettes.
+                                </p>
+                                <img src="../assets/img/projects/savonappapi/welcome.png" alt="Écran d'accueil" class="project-image">
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Calculateur de recettes</h4>
+                                <p>
+                                    Interface permettant aux utilisateurs de créer des recettes en spécifiant les ingrédients et leurs quantités.
+                                    L'application calcule en temps réel les propriétés du savon.
+                                </p>
+                                <img src="../assets/img/projects/savonappapi/calculateur.png" alt="Calculateur de recettes" class="project-image">
+                            </div>
+                        </div>
+
+                        <h4>Gestion des ingrédients</h4>
+                        <p>
+                            Interface permettant de gérer la base de données des ingrédients disponibles pour les recettes.
+                            Chaque ingrédient possède des propriétés spécifiques qui influent sur les caractéristiques du savon final.
+                        </p>
+                        <img src="../assets/img/projects/savonappapi/ingredients.png" alt="Gestion des ingrédients" class="project-image">
+
+                        <h3 class="mt-4">Architecture et technologies</h3>
+                        <ul>
+                            <li><strong>Framework :</strong> Angular</li>
+                            <li><strong>Langage :</strong> TypeScript</li>
+                            <li><strong>Styles :</strong> CSS personnalisé et Bootstrap</li>
+                            <li><strong>Communication avec le backend :</strong> HTTP Client Angular</li>
+                        </ul>
+
+                        <h3 class="mt-4">Extrait de code - Service Angular</h3>
+                        <div class="code-block">
+                            <pre><code>
+// Service Angular pour la communication avec SavonAPI
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Recette } from '../models/recette.model';
+import { environment } from '../../environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RecetteService {
+  private apiUrl = `${environment.apiUrl}/api-savon/v1/recette`;
+
+  constructor(private http: HttpClient) { }
+
+  getAllRecettes(): Observable<Recette[]> {
+    return this.http.get<Recette[]>(this.apiUrl);
+  }
+
+  getRecetteById(id: number): Observable<Recette> {
+    return this.http.get<Recette>(`${this.apiUrl}/${id}`);
+  }
+
+  createRecette(recette: Recette): Observable<Recette> {
+    return this.http.post<Recette>(this.apiUrl, recette);
+  }
+
+  updateRecette(id: number, recette: Recette): Observable<Recette> {
+    return this.http.put<Recette>(`${this.apiUrl}/${id}`, recette);
+  }
+
+  deleteRecette(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
+                            </code></pre>
+                        </div>
+                        
+                        <h3 class="mt-4">Principaux défis - Frontend</h3>
+                        <ul>
+                            <li>Création d'une interface utilisateur intuitive pour la formulation de recettes complexes</li>
+                            <li>Mise en place de formulaires réactifs avec validation en temps réel</li>
+                            <li>Gestion de l'état de l'application et synchronisation avec le backend</li>
+                            <li>Optimisation des performances pour le calcul en temps réel des propriétés du savon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenu de l'onglet SavonAPI -->
+            <div class="tab-pane fade" id="savonapi" role="tabpanel" aria-labelledby="savonapi-tab">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h2 class="mb-4">SavonAPI - Backend Kotlin/Spring Boot</h2>
+                        
+                        <h3 class="mt-4">Présentation et fonctionnalités</h3>
+                        <p>
+                            SavonAPI est le backend de l'application, développé en Kotlin avec Spring Boot. Il fournit une API RESTful pour 
+                            la gestion des données et implémente toute la logique métier liée à la formulation des savons.
+                        </p>
+
+                        <h3 class="mt-4">Structure du projet</h3>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h4>Organisation des packages</h4>
+                                <ul>
+                                    <li><strong>controller</strong> : Gestion des endpoints API</li>
+                                    <li><strong>model</strong> : Entités, DAOs et IDs</li>
+                                    <li><strong>dto</strong> : Objets de transfert de données</li>
+                                    <li><strong>service</strong> : Logique métier et algorithmes</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Entités principales</h4>
+                                <ul>
+                                    <li><strong>Recette</strong> : Formulation de savon avec ses propriétés</li>
+                                    <li><strong>Ingredient</strong> : Composants utilisés dans les recettes</li>
+                                    <li><strong>LigneIngredient</strong> : Association entre recette et ingrédient</li>
+                                    <li><strong>Resultat</strong> : Caractéristiques calculées du savon</li>
+                                    <li><strong>Caracteristique</strong> : Propriétés évaluées (dureté, etc.)</li>
+                                    <li><strong>Mention</strong> : Évaluation qualitative des résultats</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">Algorithmes de calcul</h3>
+                        <p>
+                            SavonAPI implémente plusieurs algorithmes complexes pour calculer les propriétés des savons :
+                        </p>
+                        <ul>
+                            <li><strong>Calcul des scores pondérés</strong> : Évaluation des propriétés physiques du savon</li>
+                            <li><strong>Calcul des scores non pondérés</strong> : Évaluation des indices chimiques</li>
+                            <li><strong>Calcul de la quantité d'alcalin</strong> : Détermination de la quantité de soude ou potasse nécessaire</li>
+                            <li><strong>Calcul de l'apport en eau</strong> : Détermination de la quantité d'eau optimale</li>
+                        </ul>
+
+                        <h3 class="mt-4">Architecture API REST</h3>
+                        <div class="code-block">
+                            <pre><code>
+@RestController
+@CrossOrigin
+@RequestMapping("/api-savon/v1/recette")
+class RecetteController(
+    val simulateurService: SimulateurService,
+    val recetteDAO: RecetteDAO
+) {
+    @GetMapping
+    fun index(): List<Recette> {
+        return this.recetteDAO.findAll()
+    }
+
+    @GetMapping("/{id}")
+    fun show(@PathVariable id: Long): ResponseEntity<Recette> {
+        val recette = this.recetteDAO.findById(id)
+        return if (recette.isPresent) {
+            ResponseEntity.ok(recette.get())
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
+
+    @PostMapping
+    fun store(@RequestBody recetteFormDTO: RecetteFormDTO): ResponseEntity<Recette> {
+        val savedRecette = this.simulateurService.toRecette(recetteFormDTO)
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedRecette)
+    }
+
+    @PutMapping("/{id}")
+    fun store(@PathVariable id: Long, @RequestBody recetteFormDTO: RecetteFormDTO): ResponseEntity<Recette> {
+        recetteFormDTO.id = id
+        val savedRecette = this.simulateurService.toRecette(recetteFormDTO)
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedRecette)
+    }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Long): ResponseEntity<Void> {
+        return if (recetteDAO.existsById(id)) {
+            recetteDAO.deleteById(id)
+            ResponseEntity.noContent().build()
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
+}
+                            </code></pre>
+                        </div>
+
+                        <h3 class="mt-4">Exemple d'algorithme - Calcul des scores pondérés</h3>
+                        <div class="code-block">
+                            <pre><code>
+fun calculPondere() {
+    //Calcul des scores
+    var douceur: Double = this.ligneIngredients.sumOf { it.ingredient!!.douceur * it.pourcentage / 100.toDouble() }
+    var lavant: Double = this.ligneIngredients.sumOf { it.ingredient!!.lavant * it.pourcentage / 100.toDouble() }
+    var volMousse: Double = this.ligneIngredients.sumOf { it.ingredient!!.volMousse * it.pourcentage / 100.toDouble() }
+    var tenueMousse: Double = this.ligneIngredients.sumOf { it.ingredient!!.tenueMousse * it.pourcentage / 100.toDouble() }
+    var durete: Double = this.ligneIngredients.sumOf { it.ingredient!!.durete * it.pourcentage / 100.toDouble() }
+    var solubilite: Double = this.ligneIngredients.sumOf { it.ingredient!!.solubilite * it.pourcentage / 100.toDouble() }
+    var sechage: Double = this.ligneIngredients.sumOf { it.ingredient!!.sechage * it.pourcentage / 100.toDouble() }
+
+    //Modification avec le surgraissage
+    douceur = douceur * (1 + 0.01494 * this.surgraissage)
+    lavant = lavant * (1 + -0.01203 * this.surgraissage)
+    volMousse = volMousse * (1 + -0.00702 * this.surgraissage)
+    tenueMousse = tenueMousse * (1 + 0.01016 * this.surgraissage)
+    durete = durete * (1 + -0.00602 * this.surgraissage)
+    solubilite = solubilite * (1 + 0.00250 * this.surgraissage)
+    sechage = sechage * (1 + -0.00503 * this.surgraissage)
+
+    //Affectation aux resultats
+    this.resultats.find { it.caracteristique!!.nom == "Douceur" }!!.score = douceur.toFloat()
+    this.resultats.find { it.caracteristique!!.nom == "Lavant" }!!.score = lavant.toFloat()
+    this.resultats.find { it.caracteristique!!.nom == "Volume de mousse" }!!.score = volMousse.toFloat()
+    this.resultats.find { it.caracteristique!!.nom == "Tenue de mousse" }!!.score = tenueMousse.toFloat()
+    this.resultats.find { it.caracteristique!!.nom == "Dureté" }!!.score = durete.toFloat()
+    this.resultats.find { it.caracteristique!!.nom == "Solubilité" }!!.score = solubilite.toFloat()
+    this.resultats.find { it.caracteristique!!.nom == "Séchage" }!!.score = sechage.toFloat()
+}
+                            </code></pre>
+                        </div>
+                        
+                        <h3 class="mt-4">Principaux défis - Backend</h3>
+                        <ul>
+                            <li>Implémentation d'algorithmes complexes de calcul des propriétés du savon</li>
+                            <li>Gestion des relations entre entités avec JPA/Hibernate</li>
+                            <li>Conception d'une API RESTful robuste et performante</li>
+                            <li>Mise en place des tests unitaires pour valider les algorithmes</li>
+                            <li>Organisation des données avec des identifiants composites (LigneIngredientId, ResultatId)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Compétences développées</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Frontend</h4>
+                                <ul class="list-group list-group-flush bg-transparent">
+                                    <li class="list-group-item bg-transparent">Développement avec Angular et TypeScript</li>
+                                    <li class="list-group-item bg-transparent">Création d'interfaces utilisateur réactives</li>
+                                    <li class="list-group-item bg-transparent">Conception de formulaires complexes et validation</li>
+                                    <li class="list-group-item bg-transparent">Communication avec des API REST</li>
+                                    <li class="list-group-item bg-transparent">Gestion de l'état de l'application</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Backend</h4>
+                                <ul class="list-group list-group-flush bg-transparent">
+                                    <li class="list-group-item bg-transparent">Développement en Kotlin avec Spring Boot</li>
+                                    <li class="list-group-item bg-transparent">Conception d'API RESTful</li>
+                                    <li class="list-group-item bg-transparent">Persistance de données avec JPA/Hibernate</li>
+                                    <li class="list-group-item bg-transparent">Implémentation d'algorithmes complexes</li>
+                                    <li class="list-group-item bg-transparent">Tests unitaires et intégration continue</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <p>Ce projet fullstack a été l'occasion de mettre en pratique un large éventail de compétences techniques, tant côté frontend que backend, et de développer une application complète et fonctionnelle.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="../index.html#projets" class="return-button">
+        <i class="bi bi-arrow-left"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

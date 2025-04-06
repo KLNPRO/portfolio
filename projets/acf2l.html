@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet ACF2L - Killian Emmanuel</title>
+    <meta content="Description du projet ACF2L" name="description">
+    <!-- Vos fichiers CSS -->
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .section-divider {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 40px 0;
+        }
+        .return-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #18d26e;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .return-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body data-bs-theme="dark">
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="text-center">Projet ACF2L</h1>
+                <p class="text-center fs-5">Aéroclub de Frotey-Les-Lures - Réalisé en première année de BTS SIO SLAM - 2023-2024</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Présentation du projet</h2>
+                        <p class="card-text">
+                            ACF2L est un site web créé pour l'Aéroclub de Frotey-Les-Lures, une association dédiée à l'aviation légère et aux ULM.
+                            Le site permet de présenter les activités du club, les différentes catégories d'ULM, les tarifs, et inclut un formulaire de contact
+                            connecté à une base de données.
+                        </p>
+                        <p class="card-text">
+                            Ce projet a été réalisé en groupe avec Rauthikan VARATHARAJAH et Ali MOHAMMAD dans le cadre de notre formation BTS SIO SLAM.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2>Fonctionnalités implémentées</h2>
+                <ul class="list-group list-group-flush bg-transparent">
+                    <li class="list-group-item bg-transparent">Présentation des activités de l'aéroclub</li>
+                    <li class="list-group-item bg-transparent">Affichage des différentes catégories d'ULM</li>
+                    <li class="list-group-item bg-transparent">Présentation de l'équipe du club</li>
+                    <li class="list-group-item bg-transparent">Affichage des tarifs sous forme de tableau</li>
+                    <li class="list-group-item bg-transparent">Formulaire de contact avec sauvegarde en base de données</li>
+                    <li class="list-group-item bg-transparent">Interface administrateur pour gérer les messages</li>
+                    <li class="list-group-item bg-transparent">Widget météo pour afficher les conditions actuelles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4">Aperçu du site</h2>
+                
+                <h3 class="mt-4">Page d'accueil avec slider</h3>
+                <p>
+                    La page d'accueil présente un slider avec des images de l'aéroclub et des messages de bienvenue.
+                </p>
+                <img src="../assets/img/projects/acf2l/home.png" alt="Page d'accueil" class="project-image">
+                
+                <h3 class="mt-4">Les catégories d'ULM</h3>
+                <p>
+                    Présentation des trois types d'ULM proposés par l'aéroclub : L'autogire ultraléger, Le paramoteur, et Le multiaxes.
+                </p>
+                <img src="../assets/img/projects/acf2l/ulm_categories.png" alt="Catégories d'ULM" class="project-image">
+                
+                <h3 class="mt-4">Tarifs</h3>
+                <p>
+                    Un tableau présente les différents tarifs pour chaque type d'ULM selon la formule choisie.
+                </p>
+                <img src="../assets/img/projects/acf2l/prices.png" alt="Tarifs" class="project-image">
+                
+                <h3 class="mt-4">Formulaire de contact</h3>
+                <p>
+                    Le site propose un formulaire de contact qui enregistre les demandes dans une base de données.
+                </p>
+                <img src="../assets/img/projects/acf2l/contact_form.png" alt="Formulaire de contact" class="project-image">
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4">Aspects techniques</h2>
+                
+                <h3 class="mt-4">Structure du site</h3>
+                <p>
+                    Le site a été créé à partir d'un template Bootstrap, adapté aux besoins du client. Les fonctionnalités ont été implémentées en PHP et JavaScript.
+                </p>
+                
+                <h3 class="mt-4">Gestion des messages</h3>
+                <p>
+                    Une interface d'administration permet de visualiser, modifier et supprimer les messages reçus via le formulaire de contact.
+                </p>
+                <div class="code-block">
+                    <pre><code>
+// Extrait du code pour l'affichage des messages (listeMessages.php)
+$requete = "SELECT * FROM message";
+
+if (!($result = mysqli_query($conn, $requete)))
+    die('Erreur de la requete : ' . $requete);
+
+// Affichage des messages dans un tableau
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "&lt;tr&gt;";
+        echo "&lt;td&gt;" . $row['idMessage'] . "&lt;/td&gt;";
+        echo "&lt;td&gt;" . $row['nomPersonne'] . "&lt;/td&gt;";
+        echo "&lt;td&gt;" . $row['melPersonne'] . "&lt;/td&gt;";
+        echo "&lt;td&gt;" . $row['dateNaissance'] . "&lt;/td&gt;";
+        echo "&lt;td&gt;" . $row['objet'] . "&lt;/td&gt;";
+        echo "&lt;td&gt;&lt;a href=deleteMessage.php?id=" . $row['idMessage'] . " onClick=\"return(confirm('Etes-vous sûr de vouloir supprimer ce message ?'));\">delete&lt;/a&gt;&lt;/td&gt; ";
+        echo "&lt;td&gt;&lt;a href=updateForm.php?id=" . $row['idMessage'] . "&gt;update&lt;/a&gt;&lt;/td&gt;";
+        echo "&lt;tr&gt;";
+    }
+}
+                    </code></pre>
+                </div>
+                
+                <h3 class="mt-4">Traitement du formulaire de contact</h3>
+                <p>
+                    Les données du formulaire sont validées et enregistrées dans la base de données MySQL.
+                </p>
+                <div class="code-block">
+                    <pre><code>
+// Extrait du code de traitement du formulaire (contact.php)
+$nom = $_POST['nom']; 
+$email = $_POST['email'];
+$date = $_POST['dateNaissance'];
+$demande = $_POST['demande'];
+
+// Fonction de validation des données
+function validDonnees($donnees) {
+    $donnees = trim($donnees);
+    $donnees = stripslashes($donnees);
+    $donnees = htmlspecialchars($donnees);
+    return $donnees;
+}
+
+if (isset($_POST['nom']) and !empty($_POST['nom'])) {
+    $nom = validDonnees($_POST['nom']);
+}
+
+// Insertion dans la base de données
+$requete = "INSERT INTO message(nomPersonne, melPersonne, dateNaissance, objet)
+VALUES ('$nom', '$email', '$date', '$demande');";
+
+if (!($result = mysqli_query($conn, $requete)))
+    die("Erreur de la requete :" . $conn->error);
+                    </code></pre>
+                </div>
+                
+                <h3 class="mt-4">Intégration du widget météo</h3>
+                <p>
+                    Un widget météo a été intégré pour afficher les conditions actuelles, utile pour les activités de vol.
+                </p>
+                <div class="code-block">
+                    <pre><code>
+&lt;div id="ww_ed12fe39bb23b" v='1.3' loc='auto' a='{"t":"responsive","lang":"fr","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_tof":"5"}'&gt;
+    Plus de prévisions: &lt;a href="https://oneweather.org/fr/paris/30_jours/" id="ww_ed12fe39bb23b_u" target="_blank"&gt;Meteo 30 jours&lt;/a&gt;
+&lt;/div&gt;
+&lt;script async src="https://app2.weatherwidget.org/js/?id=ww_ed12fe39bb23b"&gt;&lt;/script&gt;
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Compétences développées</h2>
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-item bg-transparent">Utilisation de Bootstrap pour un design responsive</li>
+                            <li class="list-group-item bg-transparent">Intégration et adaptation d'un template existant</li>
+                            <li class="list-group-item bg-transparent">Création et gestion d'une base de données MySQL</li>
+                            <li class="list-group-item bg-transparent">Développement backend en PHP</li>
+                            <li class="list-group-item bg-transparent">Création de formulaires avec validation de données</li>
+                            <li class="list-group-item bg-transparent">Travail en équipe sur un projet web</li>
+                            <li class="list-group-item bg-transparent">Intégration de widgets et services tiers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <p>Ce projet m'a permis de mettre en pratique mes compétences en développement web et de travailler en équipe sur un projet concret.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="../index.html#projets" class="return-button">
+        <i class="bi bi-arrow-left"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
