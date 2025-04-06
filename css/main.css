@@ -482,18 +482,16 @@ body[data-bs-theme="dark"] {
   background-color: rgba(40, 40, 40, 0.9);
 }
 
+
 .left-control {
-  left: 0;
+  left: 10px;
 }
 
 .right-control {
-  right: 0;
+  right: 10px;
 }
 
-.carousel-control i {
-  color: white;
-  font-size: 1.2rem;
-}
+
 
 /* Ligne animée verticale */
 .ligne-animee {
