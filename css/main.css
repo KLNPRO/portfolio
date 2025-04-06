@@ -368,9 +368,10 @@ body[data-bs-theme="dark"] {
 
 /* projects section start */
 
+
 .card {
   width: 100%;
-  height: 300px;
+  height: 400px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -499,11 +500,12 @@ body[data-bs-theme="dark"] {
     justify-content: center;
     gap: 10px;
   }
-  
   .stone-wrapper {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 50px;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    min-width: 120px; /* Ajoutez cette ligne */
+    min-height: 120px; /* Ajoutez cette ligne */
   }
   
   .stone-description {
@@ -524,6 +526,142 @@ body[data-bs-theme="dark"] {
 
 .stones-container:hover .stone-wrapper {
   animation-play-state: paused;
+}
+
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill-card {
+  width: 200px;
+  height: 200px;
+  background: rgba(25, 25, 25, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.5);
+  border-color: #18d26e;
+}
+
+.skill-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  background: rgba(20, 20, 20, 0.7);
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-wrapper {
+  background: rgba(24, 210, 110, 0.1);
+}
+
+.skill-icon {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+  filter: grayscale(0%);
+}
+
+.html-icon { border: 2px solid #e44d26; }
+.js-icon { border: 2px solid #f7df1e; }
+.kotlin-icon { border: 2px solid #7F52FF; }
+.mariadb-icon { border: 2px solid #4e629a; }
+.mysql-icon { border: 2px solid #4479A1; }
+.php-icon { border: 2px solid #8993be; }
+.python-icon { border: 2px solid #3776AB; }
+
+.skill-card:hover .html-icon { box-shadow: 0 0 15px rgba(228, 77, 38, 0.6); }
+.skill-card:hover .js-icon { box-shadow: 0 0 15px rgba(247, 223, 30, 0.6); }
+.skill-card:hover .kotlin-icon { box-shadow: 0 0 15px rgba(127, 82, 255, 0.6); }
+.skill-card:hover .mariadb-icon { box-shadow: 0 0 15px rgba(78, 98, 154, 0.6); }
+.skill-card:hover .mysql-icon { box-shadow: 0 0 15px rgba(68, 121, 161, 0.6); }
+.skill-card:hover .php-icon { box-shadow: 0 0 15px rgba(137, 147, 190, 0.6); }
+.skill-card:hover .python-icon { box-shadow: 0 0 15px rgba(55, 118, 171, 0.6); }
+
+.skill-name {
+  margin: 10px 0;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-name {
+  color: #18d26e;
+}
+
+.skill-description {
+  font-size: 12px;
+  color: #ccc;
+  opacity: 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  padding: 0 10px;
+}
+
+.skill-card:hover .skill-description {
+  opacity: 1;
+}
+
+/* Animation de flottement pour les cartes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.skill-card:nth-child(odd) {
+  animation: float 4s ease-in-out infinite;
+}
+
+.skill-card:nth-child(even) {
+  animation: float 4s ease-in-out 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .skill-card {
+    width: 160px;
+    height: 180px;
+  }
+  
+  .skill-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skill-description {
+    font-size: 11px;
+  }
 }
 
 
