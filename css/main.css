@@ -414,7 +414,7 @@ body[data-bs-theme="dark"] {
   align-items: center;
   justify-content: center;
 }
-
+ /*nouveau 1*/
 /* Rangée d'icônes horizontale */
 .icons-row {
   display: flex;
@@ -423,7 +423,9 @@ body[data-bs-theme="dark"] {
   position: relative;
   transition: transform 0.4s ease-in-out;
 }
+/* fin nouveau 1*/
 
+/*nouveau 2*/
 /* Style commun pour les cercles */
 .cercle {
   position: relative;
@@ -437,22 +439,26 @@ body[data-bs-theme="dark"] {
   margin: 0 8px;
   z-index: 3;
   cursor: pointer;
-}
-
-/* Taille par défaut des cercles */
-.cercle {
-  height: 3rem;
   width: 3rem;
+  height: 3rem;
+  flex-shrink: 0; /* Empêcher le rétrécissement */
 }
+/*fin nouveau 2 */
+
+
+/*nouveau 3*/
 
 /* Style pour le cercle central (actif) */
 .cercle.active {
   height: 4rem;
   width: 4rem;
   background-color: rgba(30, 30, 30, 0.8);
-  box-shadow: 0px 0px 12px 0px rgba(248,248,248,0.3) inset;
-  z-index: 4;
+  box-shadow: 0px 0px 12px 0px rgba(248,248,248,0.3) inset,
+              0px 0px 16px 0px rgba(24, 210, 110, 0.3);
+  z-index: 10; /* z-index plus élevé pour apparaître devant la ligne */
+  transform: scale(1.1);
 }
+/*fin nouveau 3*/
 
 /* Couleur des icônes */
 .cercle svg {
@@ -460,6 +466,13 @@ body[data-bs-theme="dark"] {
   color: white;
   height: 60%;
   width: 60%;
+  transition: all 0.3s ease;
+}
+
+.cercle.active svg {
+  height: 65%;
+  width: 65%;
+  filter: drop-shadow(0 0 2px rgba(24, 210, 110, 0.5));
 }
 
 /* Contrôles de défilement */
@@ -480,9 +493,11 @@ body[data-bs-theme="dark"] {
 
 .carousel-control:hover {
   background-color: rgba(40, 40, 40, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(24, 210, 110, 0.3);
 }
 
-
+ 
 .left-control {
   left: 10px;
 }
@@ -494,13 +509,31 @@ body[data-bs-theme="dark"] {
 
 
 /* Ligne animée verticale */
+/* nouveau 4*/
 .ligne-animee {
-  height: 100%;
-  width: 1px;
-  position: absolute;
-  margin: auto;
-  z-index: 1;
+  z-index: 2; /* z-index inférieur à celui du cercle actif */
 }
+/*fin nouveau 4*/
+/* Conteneur de description des compétences */
+/* nouveau 5*/
+.skill-description {
+  text-align: center;
+  margin-top: 2rem;
+  min-height: 5rem;
+  transition: opacity 0.3s ease;
+}
+
+/* Animation pour les changements de description */
+.skill-description.fade-in {
+  animation: fadeInDescription 0.5s ease-in-out;
+}
+
+@keyframes fadeInDescription {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+/* fin nouveau 5*/
+
 
 .ligne {
   height: 40%;
