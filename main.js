@@ -35,6 +35,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('#navbar .nav-link');
     const sections = document.querySelectorAll('section');
     const navHeight = navbar.getBoundingClientRect().height;
+
+    const stoneWrappers = document.querySelectorAll('.stone-wrapper');
+    
+    // Assurez-vous que les descriptions restent visibles même si la souris se déplace légèrement
+    stoneWrappers.forEach(wrapper => {
+      const stone = wrapper.querySelector('.stone');
+      const desc = wrapper.querySelector('.stone-description');
+      
+      stone.addEventListener('mouseenter', () => {
+        desc.style.opacity = '1';
+      });
+      
+      stone.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+          if (!wrapper.matches(':hover')) {
+            desc.style.opacity = '0';
+          }
+        }, 200);
+      });
+    });
     
     // Fonction pour fixer la navbar lors du défilement
     function fixNavbar() {

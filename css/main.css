@@ -368,6 +368,165 @@ body[data-bs-theme="dark"] {
 
 /* projects section start */
 
+.card {
+  width: 100%;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.stones-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 20px;
+}
+
+.stone-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+  margin-bottom: 40px;
+}
+
+.stone {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.stone:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.stone-name {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: -30px;
+  left: 0;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-shadow: 0 0 5px currentColor;
+}
+
+.stone-description {
+  position: absolute;
+  width: 300px;
+  text-align: center;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.stone:hover + .stone-name {
+  opacity: 1;
+}
+
+.stone:hover ~ .stone-description {
+  opacity: 1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.stone-wrapper {
+  animation: float 4s ease-in-out infinite;
+}
+
+.stone-wrapper:nth-child(2) {
+  animation-delay: -0.5s;
+}
+.stone-wrapper:nth-child(3) {
+  animation-delay: -1s;
+}
+.stone-wrapper:nth-child(4) {
+  animation-delay: -1.5s;
+}
+.stone-wrapper:nth-child(5) {
+  animation-delay: -2s;
+}
+.stone-wrapper:nth-child(6) {
+  animation-delay: -2.5s;
+}
+.stone-wrapper:nth-child(7) {
+  animation-delay: -3s;
+}
+.stone-wrapper:nth-child(8) {
+  animation-delay: -3.5s;
+}
+
+/* Style responsive pour mobiles */
+@media (max-width: 768px) {
+  .stones-container {
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .stone-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 50px;
+  }
+  
+  .stone-description {
+    width: 220px;
+    font-size: 12px;
+  }
+}
+
+/* Pour faire défiler en cercle - optionnel */
+@keyframes rotate-icons {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.stones-container:hover .stone-wrapper {
+  animation-play-state: paused;
+}
+
+
 .card-projet {
   width: 100%;
   height: 100%;
