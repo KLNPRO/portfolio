@@ -37,6 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const navHeight = navbar.getBoundingClientRect().height;
 
     const stoneWrappers = document.querySelectorAll('.stone-wrapper');
+
+    const showMapLink = document.getElementById('show-map');
+    if (showMapLink) {
+      showMapLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Le modal sera géré par Bootstrap, donc pas besoin d'autre code ici
+      });
+    }
+
+     // Ajouter un gestionnaire pour les liens de contact
+  const contactLinks = document.querySelectorAll('a[href^="mailto:"]');
+  contactLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Laisser le comportement par défaut (ouverture du client mail)
+      console.log('Ouverture du formulaire de contact email');
+    });
+  });
     
     // Assurez-vous que les descriptions restent visibles même si la souris se déplace légèrement
     stoneWrappers.forEach(wrapper => {

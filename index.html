@@ -655,7 +655,7 @@
     <div class="row justify-content-center">
       <div class="col-md-5 mb-5">
         <div class="contact-card">
-          <button class="mail">
+          <button class="mail" onclick="window.location.href='mailto:killianemmanuel68@gmail.com'">
             <svg
               class="lucide lucide-mail"
               stroke-linejoin="round"
@@ -684,19 +684,10 @@
             </div>
             <div class="bottom-bottom">
               <div class="social-links-container">
-                <a href="https://www.instagram.com/votre_compte" target="_blank" aria-label="Instagram">
-                  <svg
-                    viewBox="0 0 16 15.999"
-                    height="15.999"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      transform="translate(6 598)"
-                      d="M6-582H-2a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H6a4,4,0,0,1,4,4v8A4,4,0,0,1,6-582ZM2-594a4,4,0,0,0-4,4,4,4,0,0,0,4,4,4,4,0,0,0,4-4A4.005,4.005,0,0,0,2-594Zm4.5-2a1,1,0,0,0-1,1,1,1,0,0,0,1,1,1,1,0,0,0,1-1A1,1,0,0,0,6.5-596ZM2-587.5A2.5,2.5,0,0,1-.5-590,2.5,2.5,0,0,1,2-592.5,2.5,2.5,0,0,1,4.5-590,2.5,2.5,0,0,1,2-587.5Z"
-                      data-name="Subtraction 4"
-                      id="Subtraction_4"
-                    ></path>
+                <!-- Remplacé Instagram par Pinterest -->
+                <a href="https://www.pinterest.fr/votre_compte" target="_blank" aria-label="Pinterest">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="16" height="16">
+                    <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"/>
                   </svg>
                 </a>
                 
@@ -714,7 +705,8 @@
                   </svg>
                 </a>
               </div>
-              <a href="mailto:votre_email@example.com" class="button">Contactez-moi</a>
+              <!-- Ouvre la fenêtre de composition d'email -->
+              <a href="mailto:killianemmanuel68@gmail.com?subject=Contact depuis le portfolio&body=Bonjour Killian," class="button">Contactez-moi</a>
             </div>
           </div>
         </div>
@@ -728,7 +720,7 @@
             <i class="bi bi-geo-alt"></i>
           </div>
           <h5>Localisation</h5>
-          <p>77350 Le Mee Sur Seine, France</p>
+          <p><a href="#" id="show-map" data-bs-toggle="modal" data-bs-target="#mapModal">77350 Le Mee Sur Seine, France</a></p>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
@@ -737,7 +729,7 @@
             <i class="bi bi-envelope"></i>
           </div>
           <h5>Email</h5>
-          <p><a href="mailto:votre_email@example.com">killianemmanuel68@gmail.com</a></p>
+          <p><a href="mailto:killianemmanuel68@gmail.com">killianemmanuel68@gmail.com</a></p>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
@@ -746,7 +738,31 @@
             <i class="bi bi-phone"></i>
           </div>
           <h5>Téléphone</h5>
-          <p><a href="tel:+33600000000">+33 7 82 86 08 34 </a></p>
+          <p><a href="tel:+33782860834">+33 7 82 86 08 34</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal pour la carte Google Maps -->
+  <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mapModalLabel">77350 Le Mee Sur Seine, France</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden;">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              style="border:0" 
+              loading="lazy" 
+              allowfullscreen 
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=77350+Le+Mee+Sur+Seine,France">
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
