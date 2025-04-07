@@ -1362,7 +1362,294 @@ body[data-bs-theme="dark"] {
 .technology-card:nth-child(5), .skill-progress:nth-child(5) {
   animation-delay: 0.5s;
 }
-/*veille techlonogique en*/
+/*veille techlonogique end*/
+/*contact start */
+#contact {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Carte de contact principale */
+.contact-card {
+  width: 100%;
+  height: 350px;
+  background: #1a1a1a;
+  border-radius: 32px;
+  padding: 3px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 30px -10px;
+  transition: all 0.5s ease-in-out;
+  margin-bottom: 2rem;
+}
+
+.contact-card .mail {
+  position: absolute;
+  right: 2rem;
+  top: 1.4rem;
+  background: transparent;
+  border: none;
+  z-index: 10;
+}
+
+.contact-card .mail svg {
+  stroke: #18d26e;
+  stroke-width: 3px;
+  transition: all 0.3s ease;
+}
+
+.contact-card .mail svg:hover {
+  stroke: #0fa952;
+  transform: scale(1.2);
+}
+
+.contact-card .profile-pic {
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  top: 3px;
+  left: 3px;
+  border-radius: 29px;
+  z-index: 1;
+  border: 0px solid #18d26e;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+}
+
+.contact-card .profile-pic img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.contact-card .bottom {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  background: #18d26e;
+  top: 80%;
+  border-radius: 29px;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px inset;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.contact-card .bottom .content {
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 160px;
+}
+
+.contact-card .bottom .content .name {
+  display: block;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+
+.contact-card .bottom .content .about-me {
+  display: block;
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+.contact-card .bottom .bottom-bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-card .bottom .bottom-bottom .social-links-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-card .bottom .bottom-bottom .social-links-container svg {
+  height: 20px;
+  width: 20px;
+  fill: white;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.contact-card .bottom .bottom-bottom .social-links-container svg:hover {
+  fill: #111;
+  transform: scale(1.2);
+}
+
+.contact-card .bottom .bottom-bottom .button {
+  background: white;
+  color: #18d26e;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-card .bottom .bottom-bottom .button:hover {
+  background: #111;
+  color: white;
+  transform: scale(1.05);
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+}
+
+.contact-card:hover .bottom {
+  top: 30%;
+  border-radius: 80px 29px 29px 29px;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+}
+
+.contact-card:hover .profile-pic {
+  width: 120px;
+  height: 120px;
+  top: 15px;
+  left: 15px;
+  border-radius: 50%;
+  z-index: 3;
+  border: 5px solid #18d26e;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+}
+
+.contact-card:hover .profile-pic:hover {
+  transform: scale(1.1);
+}
+
+/* Cards d'information de contact */
+.contact-info-card {
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-info-card:hover {
+  transform: translateY(-10px);
+  background: rgba(35, 35, 35, 0.7);
+  border-color: #18d26e;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info-card .icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(24, 210, 110, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  transition: all 0.3s ease;
+}
+
+.contact-info-card:hover .icon-wrapper {
+  background: rgba(24, 210, 110, 0.2);
+}
+
+.contact-info-card .icon-wrapper i {
+  font-size: 24px;
+  color: #18d26e;
+}
+
+.contact-info-card h5 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.contact-info-card p {
+  color: #ccc;
+  margin-bottom: 0;
+}
+
+.contact-info-card a {
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-info-card a:hover {
+  color: #18d26e;
+}
+
+/* Formulaire de contact */
+.form-control {
+  background: #1c1c1c !important;
+  border: 1px solid #333 !important;
+  padding: 12px 15px;
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: #18d26e !important;
+  background: #222 !important;
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-card, .contact-info-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.contact-info-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.contact-info-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contact-info-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card {
+    height: 320px;
+  }
+  
+  .contact-card:hover .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .contact-card .bottom .content .about-me {
+    font-size: 0.8rem;
+  }
+}
+/*contact end */ 
 
 
 /* Footer */
